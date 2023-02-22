@@ -1,0 +1,18 @@
+{
+    "sectionFiles": [ 
+        {
+            "section": "SCM",
+            "files": [
+                { "description": "CAN specialization declaration", "type": "CAN_SPEC_C_DECL",       "path": "can_spec.h" },
+                { "description": "CAN specialization definition",  "type": "CAN_SPEC_C_DEF",        "path": "can_spec.c" },
+                { "description": "CAN spec definition for scheduling", "type": "CAN_SPEC_SCHED_C_DEF", "path": "can_spec_sched.h" },
+                { "description": "Blackboard C declaration",       "type": "BB_C_DECL",             "path": "blackboard.h" },
+                { "description": "blackboard C definition",        "type": "BB_C_DEF",              "path": "blackboard.c" },
+                { "description": "Weakly linked callback def",     "type": "BB_C_DEFAULT_CB",       "path": "scm_default_callbacks.c" },
+                { "description": "Callback declarations",          "type": "BB_C_CALLBACK_DECL",    "path": "scm_callbacks.h" },
+                { "description": "Blackboard CPP declaration",     "type": "BB_CPP_DECL",           "path": "BBoard.h" },
+                { "description": "blackboard CPP definition",      "type": "BB_CPP_DEF",            "path": "BBoard.cpp" }
+            ]
+        }
+    ]
+}

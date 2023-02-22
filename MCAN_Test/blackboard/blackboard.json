@@ -1,0 +1,170 @@
+{
+	"copyright": "Copyright (c) 2018 Sunrise Labs, Inc.
+                  All rights reserved.",
+	"readme": "
+This file provides a schema for the Blackboard implementation in the PRC project.  It is broken into
+two main sections: blackboardFiles and sections.  Files are the C/C++/C# source code that are to be
+modified with various blackboard content.  Sections contain the CAN messages and variables that make
+up the content that goes into files.
+
+There are several types of content:
+
+ * bb_cpp_decl: Declaration (header file) of Blackboard C++ getters & setters.  These are the various
+     getXYZ() setXYZ() methods on the blackboard.
+
+ * bb_cpp_def: Definition (source file) of Blackboard C++ getters & setters.
+
+ * can_msg_enum: Definition of the the 'CAN_Msg_t' enumeration identifying all the CAN messages used
+     by the system, e.g. CAN_MSG_XYZ, CAN_MSG_ABC, etc
+
+ * can_msg_table: Definition of the 'can_msg_table' variable that makes up the schema of the
+     Blackboard.  This is used in both the C and H file that defines the table so that static
+     pure-compile-time constexpr semantics can be used to keep most of the table in flash memory on
+     embedded targets.
+
+ * C#: TODO.  Will output a single C# object model for the Blackboard
+
+ * cpp_can_spec: These are special kinds of content.  They represent a CAN specialization for a
+     given subsystem, e.g. CCU, RRCU, Host, etc. The various messages listed below subscribe to
+     these specializations within their 'rx' and 'tx' sections.  This is how variables are connected
+     to a given specialization.  There is one can_spec content blob for each listed specialization
+     file.
+
+How to run this file: python <root dir>/prc-tools/bbgen/bbgen.py -j path/to/blackboard.json
+
+How to view this file best: There are plenty of JSON editors.  Some online tools work pretty well:
+
+https://jsoneditoronline.org/
+http://jsonmate.com
+
+",
+
+	"sections": [
+		{ "name": "SCM",
+		  "messages": [
+			  { "name": "SystemBarfy", 
+			    "description": "Contains various system level elements",
+				"id": "0x400",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1", "CAN_CHAN2"],
+				"rx": ["RCM", "SCM"],
+				"callbacks": [
+					{ "section": "RCM", "fn": "testRCMCallback", "param": "RCM_EVENT_FOO" },
+					{ "section": "SCM", "fn": "testSCMCallback", "param": "SCM_EVENT_FOO" }
+				],
+				"variables": [
+					{ "name": "TestFloofy",
+					  "description": "Test",
+					  "size": 32,
+					  "units": "Test", "resolutionBits": 0
+					}
+				]
+			  },
+   			  { "name": "Motor1Params1", 
+			    "description": "Contains motor parameter settings",
+				"id": "0x410",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"],
+				"rx": ["RCM"],
+				"callbacks": null,
+				"variables": [
+					{
+					  "name": "motor1Acceleration",
+					  "description": "Motor 1 Acceleration",
+					  "size": 16,
+					  "units": "step/s^2",
+					  "resolutionBits": 3
+					},
+					{
+					  "name": "motor1Deceleration",
+					  "description": "Test",
+					  "size": 16,
+					  "units": "step/s^2",
+					  "resolutionBits": 2
+					},
+					{
+					  "name": "motor1MaxSpeed",
+					  "description": "Test",
+					  "size": 16,
+					  "units": "step/s",
+					  "resolutionBits": 2
+					},
+					{
+					  "name": "motor1MinSpeed",
+					  "description": "Test",
+					  "size": 16,
+					  "units": "step/s",
+					  "resolutionBits": 2
+					}					
+				]
+			  },
+ 			  { "name": "Motor1Control", 
+			    "description": "Motor 1 control",
+				"id": "0x460",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"],
+				"rx": ["RCM"],
+				"callbacks": null,
+				"variables": [
+					{
+					  "name": "Motor1Control",
+					  "description": "Test",
+					  "size": 8,
+					  "units": "steps",
+					  "resolutionBits": 0
+					}
+				]
+			  }	  				  			  
+		  ]
+		},
+		{ "name": "RCM",
+		  "messages": [
+			  { "name": "System",
+			    "description": "Contains various system level elements",
+				"id": "0x630",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"], 
+				"rx": ["SCM"],
+				"callbacks": null,
+	        	"variables": [
+					{ "name": "ModuleId",
+					  "description": "RCM Module ID",
+					  "size": 8,
+					  "units": "data", "resolutionBits": 0
+					}
+				]
+			  },
+			  { "name": "Sensor1",
+			    "description": "Contains information from sensor 1",
+				"id": "0x631",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"],
+				"rx": ["SCM"],
+				"callbacks": null,
+	        	"variables": [
+					{ "name": "Sensor1Voltage",
+					  "description": "Voltage for Sensor 1",
+					  "size": 16,
+					  "units": "V", "resolutionBits": 3
+					},
+					{ "name": "Sensor1Temperature",
+					  "description": "Temperature for Sensor 1",
+					  "size": 16,
+					  "units": "C", "resolutionBits": 3
+					},
+					{ "name": "Sensor1Foo",
+					  "description": "Voltage for Sensor 1",
+					  "size": 16,
+					  "units": "V", "resolutionBits": 3
+					},
+					{ "name": "Sensor1Bar",
+					  "description": "Temperature for Sensor 1",
+					  "size": 16,
+					  "units": "C", "resolutionBits": 3
+					}
+				]
+			  }
+		  ]
+		}
+	]
+}
