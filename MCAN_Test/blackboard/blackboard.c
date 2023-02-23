@@ -214,6 +214,60 @@ void bb_set_SCM_Motor1Control(const int8_t value)
 }
 
 /**
+ * @brief Gets the SCM_Motor2Control value from the blackboard.
+ * Test
+ * @return int8_t value of SCM_Motor2Control in steps
+ */
+int8_t bb_get_SCM_Motor2Control(void)
+{
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor1Contro2);
+    const BlackboardElement_T * const bbElem = bb_get_element(CAN_ELEM_SCM_Motor1Contro2);
+    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
+    const int8_t value = bb_elem_get_int8_data(bbElem, dataInfo->start_byte);
+    return value;
+}
+
+/**
+ * @brief Sets the SCM_Motor2Control value within the blackboard.
+ * @see bb_get_SCM_Motor2Control for a description of this property.
+ * @param value int8_t in steps
+ */
+void bb_set_SCM_Motor2Control(const int8_t value)
+{
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor1Contro2);
+    BlackboardElement_T * bbElem = bb_get_element(CAN_ELEM_SCM_Motor1Contro2);
+    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
+    bb_elem_set_int8_data(bbElem, value, dataInfo->start_byte);
+}
+
+/**
+ * @brief Gets the SCM_Motor3Control value from the blackboard.
+ * Test
+ * @return int8_t value of SCM_Motor3Control in steps
+ */
+int8_t bb_get_SCM_Motor3Control(void)
+{
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor3Control);
+    const BlackboardElement_T * const bbElem = bb_get_element(CAN_ELEM_SCM_Motor3Control);
+    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
+    const int8_t value = bb_elem_get_int8_data(bbElem, dataInfo->start_byte);
+    return value;
+}
+
+/**
+ * @brief Sets the SCM_Motor3Control value within the blackboard.
+ * @see bb_get_SCM_Motor3Control for a description of this property.
+ * @param value int8_t in steps
+ */
+void bb_set_SCM_Motor3Control(const int8_t value)
+{
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor3Control);
+    BlackboardElement_T * bbElem = bb_get_element(CAN_ELEM_SCM_Motor3Control);
+    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
+    bb_elem_set_int8_data(bbElem, value, dataInfo->start_byte);
+}
+
+/**
  * @brief Gets the RCM_ModuleId value from the blackboard.
  * RCM Module ID
  * @return int8_t value of RCM_ModuleId in data

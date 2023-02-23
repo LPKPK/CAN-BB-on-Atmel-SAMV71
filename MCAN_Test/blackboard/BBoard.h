@@ -47,6 +47,12 @@ public:
    static int8_t get_SCM_Motor1Control();
    static void set_SCM_Motor1Control(const int8_t value);
 
+   static int8_t get_SCM_Motor2Control();
+   static void set_SCM_Motor2Control(const int8_t value);
+
+   static int8_t get_SCM_Motor3Control();
+   static void set_SCM_Motor3Control(const int8_t value);
+
    static int8_t get_RCM_ModuleId();
    static void set_RCM_ModuleId(const int8_t value);
 

@@ -91,6 +91,52 @@ const CANElement_T can_spec_can_element_list[CAN_ELEM_LAST_MSG] =
     {
         /* .canMsgInfo */
         {
+            0x470                                    /* id        */,
+            "SCM_Motor1Contro2"                      /* name      */,
+            100                                      /* period_ms */,
+            1                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "Motor2Control",                   CAN_DATA_SIGNED,   0,         1 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+
+            }
+        },
+        {
+            NULL                                     /* pCallback */,
+            NULL                                     /* callbackParam */
+        },
+        CAN_CHAN1  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
+            0x480                                    /* id        */,
+            "SCM_Motor3Control"                      /* name      */,
+            100                                      /* period_ms */,
+            1                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "Motor3Control",                   CAN_DATA_SIGNED,   0,         1 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+
+            }
+        },
+        {
+            NULL                                     /* pCallback */,
+            NULL                                     /* callbackParam */
+        },
+        CAN_CHAN1  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
             0x630                                    /* id        */,
             "RCM_System"                             /* name      */,
             100                                      /* period_ms */,
@@ -105,8 +151,8 @@ const CANElement_T can_spec_can_element_list[CAN_ELEM_LAST_MSG] =
             }
         },
         {
-            NULL                                     /* pCallback */,
-            NULL                                     /* callbackParam */
+            &testSCMCallback                         /* pCallback */,
+            (void *)(SCM_EVENT_FOO)                  /* callbackParam */
         },
         CAN_NONE  /* txChan */,
         CAN_CHAN1  /* rxChan */

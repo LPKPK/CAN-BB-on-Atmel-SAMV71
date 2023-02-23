@@ -29,6 +29,8 @@ typedef enum
     CAN_ELEM_SCM_SystemBarfy,
     CAN_ELEM_SCM_Motor1Params1,
     CAN_ELEM_SCM_Motor1Control,
+    CAN_ELEM_SCM_Motor1Contro2,
+    CAN_ELEM_SCM_Motor3Control,
     CAN_ELEM_RCM_System,
     CAN_ELEM_RCM_Sensor1,
 

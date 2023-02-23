@@ -142,6 +142,46 @@ void BBoard::set_SCM_Motor1Control(const int8_t value)
 }
 
 /**
+ * @brief Gets the SCM_Motor2Control value from the blackboard.
+ * Test
+ * @return int8_t value of SCM_Motor2Control in steps
+ */
+int8_t BBoard::get_SCM_Motor2Control()
+{
+    return bb_get_SCM_Motor2Control();
+}
+
+/**
+ * @brief Sets the SCM_Motor2Control value within the blackboard.
+ * @see bb_get_SCM_Motor2Control for a description of this property.
+ * @param value int8_t in steps
+ */
+void BBoard::set_SCM_Motor2Control(const int8_t value)
+{
+    bb_set_SCM_Motor2Control(value);
+}
+
+/**
+ * @brief Gets the SCM_Motor3Control value from the blackboard.
+ * Test
+ * @return int8_t value of SCM_Motor3Control in steps
+ */
+int8_t BBoard::get_SCM_Motor3Control()
+{
+    return bb_get_SCM_Motor3Control();
+}
+
+/**
+ * @brief Sets the SCM_Motor3Control value within the blackboard.
+ * @see bb_get_SCM_Motor3Control for a description of this property.
+ * @param value int8_t in steps
+ */
+void BBoard::set_SCM_Motor3Control(const int8_t value)
+{
+    bb_set_SCM_Motor3Control(value);
+}
+
+/**
  * @brief Gets the RCM_ModuleId value from the blackboard.
  * RCM Module ID
  * @return int8_t value of RCM_ModuleId in data

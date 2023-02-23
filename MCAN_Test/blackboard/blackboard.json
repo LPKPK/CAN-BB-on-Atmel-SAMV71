@@ -114,6 +114,40 @@ http://jsonmate.com
 					  "resolutionBits": 0
 					}
 				]
+			  },
+			  { "name": "Motor1Contro2", 
+			    "description": "Motor 2 control",
+				"id": "0x470",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"],
+				"rx": ["RCM"],
+				"callbacks": null,
+				"variables": [
+					{
+					  "name": "Motor2Control",
+					  "description": "Test",
+					  "size": 8,
+					  "units": "steps",
+					  "resolutionBits": 0
+					}
+				]
+			  },
+			  { "name": "Motor3Control", 
+			    "description": "Motor 3 control",
+				"id": "0x480",
+				"periodMs": 100,
+				"tx": ["CAN_CHAN1"],
+				"rx": ["RCM"],
+				"callbacks": null,
+				"variables": [
+					{
+					  "name": "Motor3Control",
+					  "description": "Test",
+					  "size": 8,
+					  "units": "steps",
+					  "resolutionBits": 0
+					}
+				]
 			  }	  				  			  
 		  ]
 		},
@@ -125,7 +159,10 @@ http://jsonmate.com
 				"periodMs": 100,
 				"tx": ["CAN_CHAN1"], 
 				"rx": ["SCM"],
-				"callbacks": null,
+				"callbacks": [
+					{ "section": "RCM", "fn": "testRCMCallback", "param": "RCM_EVENT_FOO" },
+					{ "section": "SCM", "fn": "testSCMCallback", "param": "SCM_EVENT_FOO" }
+				],
 	        	"variables": [
 					{ "name": "ModuleId",
 					  "description": "RCM Module ID",

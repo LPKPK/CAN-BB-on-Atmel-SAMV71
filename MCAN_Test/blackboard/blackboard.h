@@ -55,6 +55,12 @@ void bb_set_SCM_motor1MinSpeed(const float32_T value);
 int8_t bb_get_SCM_Motor1Control(void);
 void bb_set_SCM_Motor1Control(const int8_t value);
 
+int8_t bb_get_SCM_Motor2Control(void);
+void bb_set_SCM_Motor2Control(const int8_t value);
+
+int8_t bb_get_SCM_Motor3Control(void);
+void bb_set_SCM_Motor3Control(const int8_t value);
+
 int8_t bb_get_RCM_ModuleId(void);
 void bb_set_RCM_ModuleId(const int8_t value);
 

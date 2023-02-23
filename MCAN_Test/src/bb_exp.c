@@ -117,9 +117,10 @@ void doSCMtest2(void)
 	// bb_set_RCM_Sensor1Voltage(3.5);
 	// bb_set_RCM_Sensor1Temperature(4095.5);
 
-	bb_set_SCM_motor1MaxSpeed(4095);
+	bb_set_SCM_motor1MaxSpeed(4095.5);
 	bb_set_SCM_motor1MinSpeed(5072);
 	bb_set_SCM_Motor1Control(42);
+	bb_set_SCM_Motor3Control(90);
 
 	uint32_t currTicks = 0; //bb_port_get_current_tick();
 	uint32_t prevTicks = currTicks;

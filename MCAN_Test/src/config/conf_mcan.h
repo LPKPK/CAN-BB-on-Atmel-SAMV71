@@ -83,11 +83,11 @@
  * quanta which means the bit rate is 10MHz/20=500KHz.
  */
 /** Nominal bit Baud Rate Prescaler */
-#define CONF_MCAN_NBTP_NBRP_VALUE    2
+#define CONF_MCAN_NBTP_NBRP_VALUE    1
 /** Nominal bit (Re)Synchronization Jump Width */
 #define CONF_MCAN_NBTP_NSJW_VALUE    3
 /** Nominal bit Time segment before sample point */
-#define CONF_MCAN_NBTP_NTSEG1_VALUE  10
+#define CONF_MCAN_NBTP_NTSEG1_VALUE  5
 /** Nominal bit Time segment after sample point */
 #define CONF_MCAN_NBTP_NTSEG2_VALUE  7
 
