@@ -18,30 +18,6 @@
 static uint32_t prevTicks;
 static uint32_t sleepTicks;
 
-//uint32_t bb_port_get_current_tick();
-
-// void iCanHazTx(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t length)  //scm_can_transmitter()
-// {
-// 	// uint32_t currTick = bb_port_get_current_tick();
-
-// 	// char dataStr[(8 * 3) + 1];
-// 	// size_t startPtr = 0;
-// 	// size_t maxBytes = sizeof(dataStr);
-// 	// for (int i = 0; i < length; i++)
-// 	// {
-// 	// 	startPtr += snprintf(dataStr + startPtr, maxBytes, "%02x ", data[i]);
-// 	// }
-	
-// 	const uint8_t MaxBytesPerCanMsg = 8U; // TODO: Centralized definition for this?
-// 	SLI_ASSERT(length <= MaxBytesPerCanMsg);
-  
-// 	(void)context;    // Unused
-  
-//     // CANDriver can track its own error counter
-// 	//(void)mcan_send_standard_message(msgID, data, length);
-// 	printf("SCM: iCanHazTx: %p, 0x%x, %d\n", context, msgID, data);
-// 	// candriver_error_poll();
-// }
 
 void iCanHazTx(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t length)
 {
@@ -50,8 +26,6 @@ void iCanHazTx(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t leng
 		TBD
 	*/
 
-
-        // startPtr += snprintf(dataStr + startPtr, maxBytes, "%02x ", data[i]);
 		(void)candriver_send(msgID, data, length);
 
     printf("SCM: iCanHazTx: %d: %p, 0x%x: %s\n", currTick, context, msgID, data);
@@ -113,9 +87,6 @@ void doSCMtest2(void)
 		{ &iCanHazTx, NULL }
 	};
 
-	// bb_set_RCM_ModuleId(42);
-	// bb_set_RCM_Sensor1Voltage(3.5);
-	// bb_set_RCM_Sensor1Temperature(4095.5);
 
 	bb_set_SCM_motor1MaxSpeed(4095.5);
 	bb_set_SCM_motor1MinSpeed(5072);
@@ -141,5 +112,4 @@ void doSCMtest2(void)
 
 	BlackboardElement_T * bbElement = bb_get_element(CAN_ELEM_RCM_System);
 	bb_elem_set_data_from_can(bbElement, CAN_ELEM_RCM_System, 0xDECAFC0F, 0xFEEBEBAD);
-	// bb_elem_get_data_for_can(bbElement, &tx_data[0], &tx_data[1]);
 }
