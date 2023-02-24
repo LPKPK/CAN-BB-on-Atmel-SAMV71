@@ -30,8 +30,8 @@
 
 void scm_can_trans(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t length)
 {
-	const uint8_t MaxBytesPerCanMsg = 8U; // TODO: Centralized definition for this?
-	SLI_ASSERT(length <= MaxBytesPerCanMsg);
+	// const uint8_t MaxBytesPerCanMsg = 8U; // TODO: Centralized definition for this?
+	// SLI_ASSERT(length <= MaxBytesPerCanMsg);
 	
 	(void)context;    // Unused
 	

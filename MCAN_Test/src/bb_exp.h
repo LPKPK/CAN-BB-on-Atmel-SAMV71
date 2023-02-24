@@ -12,7 +12,6 @@
 
 void doSCMtest1(void);
 void doSCMtest2();
-void bb_port_inc_ticks();
 
 
 

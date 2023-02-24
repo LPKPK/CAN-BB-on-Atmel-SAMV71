@@ -173,7 +173,15 @@ src/qs_mcan_basic.d src/qs_mcan_basic.o: ../src/qs_mcan_basic.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- ../Driver/CanDriver.h ../src/bb_exp.h
+ ../Driver/CanDriver.h ../blackboard/can_tx_processor.h \
+ ../bbcore/cc/bb_tx_proc.h ../bbcore/cc/ican_tx.h \
+ ../blackboard/can_spec.h ../blackboard/scm_can_spec.h \
+ ../blackboard/scm_callbacks.h ../bbcore/cc/can_chan.h \
+ ../bbcore/cc/can_elem.h ../bbcore/cc/can_msg_info.h \
+ ../blackboard/bb_types.h ../bbcore/cc/can_callback.h \
+ ../bbcore/cc/can_chan.h ../Driver/message_ctrl.h \
+ ../blackboard/blackboard.h ../bbcore/cc/bb_elem.h \
+ ../blackboard/bb_types.h ../bbcore/cc/can_msg_info.h ../src/bb_exp.h
 
 ../src/asf.h:
 
@@ -538,5 +546,39 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
 
 ../Driver/CanDriver.h:
+
+../blackboard/can_tx_processor.h:
+
+../bbcore/cc/bb_tx_proc.h:
+
+../bbcore/cc/ican_tx.h:
+
+../blackboard/can_spec.h:
+
+../blackboard/scm_can_spec.h:
+
+../blackboard/scm_callbacks.h:
+
+../bbcore/cc/can_chan.h:
+
+../bbcore/cc/can_elem.h:
+
+../bbcore/cc/can_msg_info.h:
+
+../blackboard/bb_types.h:
+
+../bbcore/cc/can_callback.h:
+
+../bbcore/cc/can_chan.h:
+
+../Driver/message_ctrl.h:
+
+../blackboard/blackboard.h:
+
+../bbcore/cc/bb_elem.h:
+
+../blackboard/bb_types.h:
+
+../bbcore/cc/can_msg_info.h:
 
 ../src/bb_exp.h:

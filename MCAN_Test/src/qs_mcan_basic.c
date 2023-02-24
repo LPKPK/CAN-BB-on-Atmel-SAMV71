@@ -88,9 +88,15 @@
 #include <string.h>
 #include <conf_mcan.h>
 #include "CanDriver.h"
+#include "can_tx_processor.h"
+#include "message_ctrl.h"
+
+#include"blackboard.h"
 
 
- #include "bb_exp.h"
+#include "bb_exp.h"
+
+// #define TEST
 
 /*Customized*/
 volatile uint32_t    g_tickCount        = 0U;
@@ -104,19 +110,31 @@ volatile uint32_t    g_tx_tick_count_ms = 0U;
 
  	sysclk_init();
  	board_init();
+
+	// sample_init();
 	
 	g_tickCount = 0;
 	g_tx_tick_count_ms = 0;
 
- 	can_init();
+ 	can_init();    // CAN1_Initialize();
+ 	CANTxTaskInit();
 	
- 	// CAN1_Initialize();
- 	// CANTxTaskInit();
- 	// CANRxTask();
-     // CANTxTask(g_tx_tick_count_ms);
-     // g_tx_tick_count_ms++;
-     // CanMessageControl_Task();
+	while(1)
+  {
+	// sample();
+    // CANRxTask();
+	// bb_set_SCM_Motor1Control(42);
+	// bb_set_SCM_Motor3Control(90);
+    CANTxTask(g_tx_tick_count_ms);
+    g_tx_tick_count_ms++;
+    CanMessageControl_Task();
+    #ifdef TEST
+        break;
+    #endif
+    
+  }
 
- 	doSCMtest2();
+
+
  	// doSCMtest2();
  }

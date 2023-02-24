@@ -682,6 +682,12 @@
     <Compile Include="blackboard\scm_can_spec.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Driver\message_ctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\message_ctrl.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\qs_mcan_basic.h">
       <SubType>compile</SubType>
     </Compile>
