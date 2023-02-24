@@ -17,6 +17,7 @@
 #include "scm_can_trans.h"
 #include "sli_assert.h"
 #include "CanDriver.h"
+#include "stdio.h"
 
 
 /**
@@ -30,14 +31,15 @@
 
 void scm_can_trans(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t length)
 {
-	// const uint8_t MaxBytesPerCanMsg = 8U; // TODO: Centralized definition for this?
-	// SLI_ASSERT(length <= MaxBytesPerCanMsg);
+	const uint8_t MaxBytesPerCanMsg = 8U; // TODO: Centralized definition for this?
+	SLI_ASSERT(length <= MaxBytesPerCanMsg);
 	
 	(void)context;    // Unused
-	
+
 	// CANDriver can track its own error counter
     (void)candriver_send(msgID, data, length);
 
-	//candriver_error_poll();
+	candriver_error_poll();
+	printf("Success");
 	
 }

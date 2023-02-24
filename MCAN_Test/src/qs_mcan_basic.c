@@ -123,8 +123,6 @@ volatile uint32_t    g_tx_tick_count_ms = 0U;
   {
 	// sample();
     // CANRxTask();
-	// bb_set_SCM_Motor1Control(42);
-	// bb_set_SCM_Motor3Control(90);
     CANTxTask(g_tx_tick_count_ms);
     g_tx_tick_count_ms++;
     CanMessageControl_Task();

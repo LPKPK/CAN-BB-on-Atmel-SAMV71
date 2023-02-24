@@ -161,6 +161,11 @@ void MCAN1_INT0_Handler(void)
 }
 
 
+void candriver_error_poll(void)
+{
+  
+}
+
 
 /**
  *  @brief The CAN API send function that can be called by users of the driver

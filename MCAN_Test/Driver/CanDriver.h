@@ -11,6 +11,7 @@
 
 void can_init();
 
+void candriver_error_poll(void);
 bool candriver_send(uint32_t msg_id, uint8_t *msg_data, uint32_t data_byte_length);
 
 #endif /* CANDRIVER_H_ */
