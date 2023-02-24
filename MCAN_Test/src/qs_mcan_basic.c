@@ -90,6 +90,7 @@
 #include "CanDriver.h"
 #include "can_tx_processor.h"
 #include "message_ctrl.h"
+#include "sample.h"
 
 #include"blackboard.h"
 
@@ -121,7 +122,7 @@ volatile uint32_t    g_tx_tick_count_ms = 0U;
 	
 	while(1)
   {
-	// sample();
+	sample_1();
     // CANRxTask();
     CANTxTask(g_tx_tick_count_ms);
     g_tx_tick_count_ms++;

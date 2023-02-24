@@ -22,6 +22,8 @@ blackboard\scm_callbacks.c
 
 Driver\message_ctrl.c
 
+src\sample.c
+
 blackboard\scm_can_trans.c
 
 Driver\can1.c

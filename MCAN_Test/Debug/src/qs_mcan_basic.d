@@ -179,7 +179,7 @@ src/qs_mcan_basic.d src/qs_mcan_basic.o: ../src/qs_mcan_basic.c \
  ../blackboard/scm_callbacks.h ../bbcore/cc/can_chan.h \
  ../bbcore/cc/can_elem.h ../bbcore/cc/can_msg_info.h \
  ../blackboard/bb_types.h ../bbcore/cc/can_callback.h \
- ../bbcore/cc/can_chan.h ../Driver/message_ctrl.h \
+ ../bbcore/cc/can_chan.h ../Driver/message_ctrl.h ../src/sample.h \
  ../blackboard/blackboard.h ../bbcore/cc/bb_elem.h \
  ../blackboard/bb_types.h ../bbcore/cc/can_msg_info.h ../src/bb_exp.h
 
@@ -572,6 +572,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../bbcore/cc/can_chan.h:
 
 ../Driver/message_ctrl.h:
+
+../src/sample.h:
 
 ../blackboard/blackboard.h:
 
