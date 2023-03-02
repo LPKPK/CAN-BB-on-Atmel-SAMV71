@@ -101,6 +101,7 @@ C_SRCS +=  \
 ../bbcore/cc/crc-16-x25.c \
 ../blackboard/bb_port.c \
 ../blackboard/blackboard.c \
+../blackboard/can_rx_processor.c \
 ../blackboard/can_spec.c \
 ../blackboard/can_tx_processor.c \
 ../blackboard/scm_callbacks.c \
@@ -143,6 +144,7 @@ bbcore/cc/can_elem.o \
 bbcore/cc/crc-16-x25.o \
 blackboard/bb_port.o \
 blackboard/blackboard.o \
+blackboard/can_rx_processor.o \
 blackboard/can_spec.o \
 blackboard/can_tx_processor.o \
 blackboard/scm_callbacks.o \
@@ -178,6 +180,7 @@ bbcore/cc/can_elem.o \
 bbcore/cc/crc-16-x25.o \
 blackboard/bb_port.o \
 blackboard/blackboard.o \
+blackboard/can_rx_processor.o \
 blackboard/can_spec.o \
 blackboard/can_tx_processor.o \
 blackboard/scm_callbacks.o \
@@ -213,6 +216,7 @@ bbcore/cc/can_elem.d \
 bbcore/cc/crc-16-x25.d \
 blackboard/bb_port.d \
 blackboard/blackboard.d \
+blackboard/can_rx_processor.d \
 blackboard/can_spec.d \
 blackboard/can_tx_processor.d \
 blackboard/scm_callbacks.d \
@@ -248,6 +252,7 @@ bbcore/cc/can_elem.d \
 bbcore/cc/crc-16-x25.d \
 blackboard/bb_port.d \
 blackboard/blackboard.d \
+blackboard/can_rx_processor.d \
 blackboard/can_spec.d \
 blackboard/can_tx_processor.d \
 blackboard/scm_callbacks.d \
@@ -327,6 +332,13 @@ blackboard/bb_port.o: ../blackboard/bb_port.c
 	
 
 blackboard/blackboard.o: ../blackboard/blackboard.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAMV71Q21B__ -DDEBUG -D__SAMV71Q21B__ -Dscanf=iscanf -DARM_MATH_CM7=true -Dprintf=iprintf -DBOARD=SAMV71_XPLAINED_ULTRA  -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/samv71/source/templates" -I"../src/ASF/sam/utils/cmsis/samv71/include" -I"../src/ASF/sam/drivers/mcan" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils/stdio/stdio_serial" -I"../src/ASF/common/services/serial/sam_uart" -I"../src/ASF/common/services/serial" -I"../src/ASF/sam/drivers/uart" -I"../src/ASF/sam/drivers/usart" -I"../src/ASF/sam/boards/samv71_xplained_ultra" -I"../src/ASF/sam/boards" -I"../src/ASF/common/boards" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/sam/drivers/mpu" -I"../src" -I"../src/config" -I"../blackboard" -I"../bbcore/cc" -I"../bbcore/cpp" -I"../Driver"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+blackboard/can_rx_processor.o: ../blackboard/can_rx_processor.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAMV71Q21B__ -DDEBUG -D__SAMV71Q21B__ -Dscanf=iscanf -DARM_MATH_CM7=true -Dprintf=iprintf -DBOARD=SAMV71_XPLAINED_ULTRA  -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/samv71/source/templates" -I"../src/ASF/sam/utils/cmsis/samv71/include" -I"../src/ASF/sam/drivers/mcan" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/utils/stdio/stdio_serial" -I"../src/ASF/common/services/serial/sam_uart" -I"../src/ASF/common/services/serial" -I"../src/ASF/sam/drivers/uart" -I"../src/ASF/sam/drivers/usart" -I"../src/ASF/sam/boards/samv71_xplained_ultra" -I"../src/ASF/sam/boards" -I"../src/ASF/common/boards" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/sam/drivers/mpu" -I"../src" -I"../src/config" -I"../blackboard" -I"../bbcore/cc" -I"../bbcore/cpp" -I"../Driver"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

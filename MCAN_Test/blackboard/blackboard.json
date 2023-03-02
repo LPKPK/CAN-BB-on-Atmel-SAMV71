@@ -160,8 +160,7 @@ http://jsonmate.com
 				"tx": ["CAN_CHAN1"], 
 				"rx": ["SCM"],
 				"callbacks": [
-					{ "section": "RCM", "fn": "testRCMCallback", "param": "RCM_EVENT_FOO" },
-					{ "section": "SCM", "fn": "testSCMCallback", "param": "SCM_EVENT_FOO" }
+					{ "section": "SCM", "fn": "SCMCallback_print", "param": "SCM_EVENT" }
 				],
 	        	"variables": [
 					{ "name": "ModuleId",

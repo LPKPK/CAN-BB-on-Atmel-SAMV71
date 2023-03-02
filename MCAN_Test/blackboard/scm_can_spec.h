@@ -15,6 +15,7 @@
 typedef enum
 {
     SCM_EVENT_FOO = 1,
+    SCM_EVENT,
     SCM_EVENT_BAR
 } SCMEvent_T;
 

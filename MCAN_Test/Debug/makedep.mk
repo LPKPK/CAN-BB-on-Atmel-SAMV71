@@ -14,6 +14,8 @@ blackboard\bb_port.c
 
 blackboard\blackboard.c
 
+blackboard\can_rx_processor.c
+
 blackboard\can_spec.c
 
 blackboard\can_tx_processor.c

@@ -50,14 +50,14 @@ MAKE_WEAK(void testSCMCallback(void * context, CanChannel_T rxChan, CanChannel_T
 }
 
 /**
- * @brief testSCMCallback - callback for message System
+ * @brief SCMCallback_print - callback for message System
  * @param param Pointer to user defined context
  * @param rxChan If the callback is occurring on receipt of this variable, this is
  *              the channel the message was received on. Otherwise, CAN_NONE.
  * @param txChan If the callback is occurring on transmission of this variable, this
  *              is the channel the message was transmitted on. Otherwise, CAN_NONE.
  */
-MAKE_WEAK(void testSCMCallback(void * context, CanChannel_T rxChan, CanChannel_T txChan))
+MAKE_WEAK(void SCMCallback_print(void * context, CanChannel_T rxChan, CanChannel_T txChan))
 {
     (void) context; // Unused - stub
     (void) rxChan;  // Unused - stub

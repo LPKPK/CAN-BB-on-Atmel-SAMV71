@@ -13,6 +13,8 @@
 #include <string.h>
 #include <conf_mcan.h>
 
+#include "CanDriver.h"
+
 /* module_inst */
 static struct mcan_module mcan_instance;
 
@@ -23,6 +25,12 @@ static struct mcan_module mcan_instance;
 static uint8_t tx_message_0[CONF_MCAN_ELEMENT_DATA_SIZE];
 static uint8_t tx_message_1[CONF_MCAN_ELEMENT_DATA_SIZE];
 
+/* mcan_receive_message_setting */
+static volatile uint32_t standard_receive_index = 0;
+static volatile uint32_t extended_receive_index = 0;
+static struct mcan_rx_element_fifo_0 rx_element_fifo_0;
+static struct mcan_rx_element_fifo_1 rx_element_fifo_1;
+static struct mcan_rx_element_buffer rx_element_buffer;
 
 
 
@@ -166,6 +174,39 @@ void candriver_error_poll(void)
 //   CAN1_Tasks();
 }
 
+/**
+ *  @brief The CAN API read function that can be called by users of the driver
+ *  to receive a message.
+ *
+ *  @param msg[out] - the reference to a CAN message object to store received message
+ *
+ *  @return true if message received, false if no message or error.
+ */
+bool candriver_read(can_frame_t* msg)
+{
+//   bool results = false;
+	volatile uint32_t i;
+
+  mcan_get_rx_fifo_0_element(&mcan_instance, &rx_element_fifo_0,
+				standard_receive_index);
+		mcan_rx_fifo_acknowledge(&mcan_instance, 0,
+				standard_receive_index);
+		standard_receive_index++;
+		if (standard_receive_index == CONF_MCAN0_RX_FIFO_0_NUM) {
+			standard_receive_index = 0;
+		}
+
+		// printf("\n\r Standard message received in FIFO 0. The received data is: ");
+		msg->id = ((rx_element_fifo_0.R0.bit.ID >> 0x1U) & 0x7FFU);
+        msg->data_length_code = rx_element_fifo_0.R1.bit.DLC;
+		for (i = 0; i < rx_element_fifo_0.R1.bit.DLC; i++) {
+			msg->data[i] = rx_element_fifo_0.data[i];
+			printf("  %d",rx_element_fifo_0.data[i]);
+		}
+		printf(" \r\n");
+		//printf(" %d\r\n", msg->id);
+//   return results;
+}
 
 /**
  *  @brief The CAN API send function that can be called by users of the driver

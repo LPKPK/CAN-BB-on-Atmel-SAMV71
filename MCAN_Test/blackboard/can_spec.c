@@ -151,8 +151,8 @@ const CANElement_T can_spec_can_element_list[CAN_ELEM_LAST_MSG] =
             }
         },
         {
-            &testSCMCallback                         /* pCallback */,
-            (void *)(SCM_EVENT_FOO)                  /* callbackParam */
+            &SCMCallback_print                       /* pCallback */,
+            (void *)(SCM_EVENT)                      /* callbackParam */
         },
         CAN_NONE  /* txChan */,
         CAN_CHAN1  /* rxChan */

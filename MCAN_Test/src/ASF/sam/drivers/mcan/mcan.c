@@ -611,6 +611,8 @@ enum status_code mcan_get_rx_fifo_0_element(
 		struct mcan_module *const module_inst,
 		struct mcan_rx_element_fifo_0 *rx_element, uint32_t index)
 {
+	// uint16_t rx0Data = &mcan1_rx_fifo_0[index];
+	// printf("rx0: %x\r\n", rx0Data);
 	if (module_inst->hw == MCAN0) {
 		memcpy(rx_element, &mcan0_rx_fifo_0[index], sizeof(struct mcan_rx_element_buffer));
 		return STATUS_OK;

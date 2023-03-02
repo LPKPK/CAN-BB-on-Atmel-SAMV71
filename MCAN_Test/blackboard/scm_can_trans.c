@@ -40,6 +40,6 @@ void scm_can_trans(ICANTxCtx_T context, uint32_t msgID, uint8_t * data, uint8_t 
     (void)candriver_send(msgID, data, length);
 
 	candriver_error_poll();
-	printf("Success");
+	printf("Success\r\n"); //delay
 	
 }

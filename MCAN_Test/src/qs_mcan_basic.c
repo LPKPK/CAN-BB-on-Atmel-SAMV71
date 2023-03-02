@@ -63,23 +63,7 @@
  *  -# Start the application.
  *  -# Upon startup, the application will output the following lines
  *     on the terminal window.
- *      \code
-			"  -- Select the action:\r\n"
-			"  0: Set standard filter ID 0: 0x45A, store into Rx buffer. \r\n"
-			"  1: Set standard filter ID 1: 0x469, store into Rx FIFO 0. \r\n"
-			"  2: Send standard message with ID: 0x45A and 4 byte data 0 to 3. \r\n"
-			"  3: Send standard message with ID: 0x469 and 4 byte data 128 to 131. \r\n"
-			"  4: Set extended filter ID 0: 0x100000A5, store into Rx buffer. \r\n"
-			"  5: Set extended filter ID 1: 0x10000096, store into Rx FIFO 1. \r\n"
-			"  6: Send extended message with ID: 0x100000A5 and 8 byte data 0 to 7. \r\n"
-			"  7: Send extended message with ID: 0x10000096 and 8 byte data 128 to 135. \r\n"
-			"  h: Display menu \r\n\r\n");
- \endcode
- *  -# Press '0' or '1' or '4'  or '5' key in the terminal window to configure one board to
- *     receive CAN message.
- *  -# Press '2' or '3' or '6'  or '7' key in the terminal window to configure another board to
- *     send CAN message. The message will be displayed on the terminal window.
- */
+
 
 /*
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
@@ -89,6 +73,7 @@
 #include <conf_mcan.h>
 #include "CanDriver.h"
 #include "can_tx_processor.h"
+#include "can_rx_processor.h"
 #include "message_ctrl.h"
 #include "sample.h"
 
@@ -123,7 +108,7 @@ volatile uint32_t    g_tx_tick_count_ms = 0U;
 	while(1)
   {
 	sample_1();
-    // CANRxTask();
+    CANRxTask();
     CANTxTask(g_tx_tick_count_ms);
     g_tx_tick_count_ms++;
     CanMessageControl_Task();
