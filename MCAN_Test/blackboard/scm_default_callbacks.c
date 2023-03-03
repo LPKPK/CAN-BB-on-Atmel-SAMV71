@@ -35,21 +35,6 @@
 
 
 /**
- * @brief testSCMCallback - callback for message SystemBarfy
- * @param param Pointer to user defined context
- * @param rxChan If the callback is occurring on receipt of this variable, this is
- *              the channel the message was received on. Otherwise, CAN_NONE.
- * @param txChan If the callback is occurring on transmission of this variable, this
- *              is the channel the message was transmitted on. Otherwise, CAN_NONE.
- */
-MAKE_WEAK(void testSCMCallback(void * context, CanChannel_T rxChan, CanChannel_T txChan))
-{
-    (void) context; // Unused - stub
-    (void) rxChan;  // Unused - stub
-    (void) txChan;  // Unused - stub
-}
-
-/**
  * @brief SCMCallback_print - callback for message System
  * @param param Pointer to user defined context
  * @param rxChan If the callback is occurring on receipt of this variable, this is

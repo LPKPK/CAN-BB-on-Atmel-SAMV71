@@ -28,7 +28,7 @@ void CANRxTask(void)
   CANElementIndex_T foundIdx = CAN_ELEM_LAST_MSG;
   (void)can_elem_get_can_msg_info_msgid(r_message.id, &foundIdx);
   if (foundIdx != CAN_ELEM_LAST_MSG){
-    printf("%d\r\n", foundIdx);
+    // printf("%d\r\n", foundIdx);
     // Find the corresponding Blackboard Element using the index derived from the message ID
       const CANElement_T * canElement = can_elem_get_can_elem_idx(foundIdx);
       if ((uint32_t)(canElement->rxChan) != 0UL)

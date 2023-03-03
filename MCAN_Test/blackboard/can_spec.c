@@ -22,29 +22,6 @@ const CANElement_T can_spec_can_element_list[CAN_ELEM_LAST_MSG] =
     {
         /* .canMsgInfo */
         {
-            0x400                                    /* id        */,
-            "SCM_SystemBarfy"                        /* name      */,
-            100                                      /* period_ms */,
-            4                                        /* numBytes  */,
-            {   /* data_info */
-                /* name                              signed_val         start_byte byte_count */
-                { "TestFloofy",                      CAN_DATA_SIGNED,   0,         4 },
-                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
-                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
-                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
-
-            }
-        },
-        {
-            &testSCMCallback                         /* pCallback */,
-            (void *)(SCM_EVENT_FOO)                  /* callbackParam */
-        },
-        (CanChannel_T)((uint16_t)(CAN_CHAN1) | (uint16_t)(CAN_CHAN2))  /* txChan */,
-        CAN_CHAN1  /* rxChan */
-    },
-    {
-        /* .canMsgInfo */
-        {
             0x410                                    /* id        */,
             "SCM_Motor1Params1"                      /* name      */,
             100                                      /* period_ms */,
@@ -92,7 +69,7 @@ const CANElement_T can_spec_can_element_list[CAN_ELEM_LAST_MSG] =
         /* .canMsgInfo */
         {
             0x470                                    /* id        */,
-            "SCM_Motor1Contro2"                      /* name      */,
+            "SCM_Motor2Control"                      /* name      */,
             100                                      /* period_ms */,
             1                                        /* numBytes  */,
             {   /* data_info */

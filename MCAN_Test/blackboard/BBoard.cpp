@@ -22,26 +22,6 @@ namespace bb
 
 
 /**
- * @brief Gets the SCM_TestFloofy value from the blackboard.
- * Test
- * @return int32_t value of SCM_TestFloofy in Test
- */
-int32_t BBoard::get_SCM_TestFloofy()
-{
-    return bb_get_SCM_TestFloofy();
-}
-
-/**
- * @brief Sets the SCM_TestFloofy value within the blackboard.
- * @see bb_get_SCM_TestFloofy for a description of this property.
- * @param value int32_t in Test
- */
-void BBoard::set_SCM_TestFloofy(const int32_t value)
-{
-    bb_set_SCM_TestFloofy(value);
-}
-
-/**
  * @brief Gets the SCM_motor1Acceleration value from the blackboard.
  * Motor 1 Acceleration
  * @return int16_t value of SCM_motor1Acceleration in step/s^2

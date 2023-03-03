@@ -59,7 +59,7 @@ void doSCMtest1(void)
 	}
 
 
-	CANElement_T ce = can_spec_can_element_list[CAN_ELEM_SCM_SystemBarfy];
+	CANElement_T ce = can_spec_can_element_list[CAN_ELEM_SCM_Motor1Params1];
 	printf("id = 0x%x, name=%s, period_ms=%d, numBytes=%d\n",
 	ce.canMsgInfo.id,
 	ce.canMsgInfo.name,

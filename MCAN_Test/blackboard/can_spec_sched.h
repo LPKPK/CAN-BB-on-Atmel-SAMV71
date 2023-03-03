@@ -12,13 +12,13 @@ static constexpr CANElement_T can_spec_can_element_sched_list[CAN_ELEM_LAST_MSG]
     {
         /* .canMsgInfo */
         {
-            0x400                                    /* id        */,
-            "SCM_SystemBarfy"                        /* name      */,
+            0x500                                    /* id        */,
+            "UIX_UIX_SystemInfo"                     /* name      */,
             100                                      /* period_ms */,
             4                                        /* numBytes  */,
             {   /* data_info */
                 /* name                              signed_val         start_byte byte_count */
-                { "TestFloofy",                      CAN_DATA_SIGNED,   0,         4 },
+                { "uix_sw_version",                  CAN_DATA_SIGNED,   0,         4 },
                 { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
                 { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
                 { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
@@ -30,8 +30,104 @@ static constexpr CANElement_T can_spec_can_element_sched_list[CAN_ELEM_LAST_MSG]
             NULL,
             NULL
         },
-        (CanChannel_T)((uint16_t)(CAN_CHAN1) | (uint16_t)(CAN_CHAN2))  /* txChan */,
-        CAN_CHAN1  /* rxChan */
+        CAN_NONE  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
+            0x485                                    /* id        */,
+            "UIX_WallClock"                          /* name      */,
+            100                                      /* period_ms */,
+            8                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "WallClockLower",                  CAN_DATA_SIGNED,   0,         4 },
+                { "WallClockUpper",                  CAN_DATA_SIGNED,   4,         4 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 4,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 4,         0 },
+
+            }
+        },
+        {
+            /* Callbacks always null for scheduling calculations */
+            NULL,
+            NULL
+        },
+        CAN_NONE  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
+            0x400                                    /* id        */,
+            "GDN_DeviceSettingsResponse"             /* name      */,
+            100                                      /* period_ms */,
+            8                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "response_treatmentLevel_Q10",     CAN_DATA_SIGNED,   0,         2 },
+                { "response_treatmentMode",          CAN_DATA_SIGNED,   2,         2 },
+                { "response_status",                 CAN_DATA_SIGNED,   4,         2 },
+                { "response_counter",                CAN_DATA_SIGNED,   6,         2 },
+
+            }
+        },
+        {
+            /* Callbacks always null for scheduling calculations */
+            NULL,
+            NULL
+        },
+        CAN_NONE  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
+            0x401                                    /* id        */,
+            "GDN_eNODeliveringStatus"                /* name      */,
+            100                                      /* period_ms */,
+            1                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "isENODelivering",                 CAN_DATA_SIGNED,   0,         1 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+
+            }
+        },
+        {
+            /* Callbacks always null for scheduling calculations */
+            NULL,
+            NULL
+        },
+        CAN_NONE  /* txChan */,
+        CAN_NONE  /* rxChan */
+    },
+    {
+        /* .canMsgInfo */
+        {
+            0x404                                    /* id        */,
+            "GDN_GDNStatus"                          /* name      */,
+            100                                      /* period_ms */,
+            1                                        /* numBytes  */,
+            {   /* data_info */
+                /* name                              signed_val         start_byte byte_count */
+                { "statusBits",                      CAN_DATA_SIGNED,   0,         1 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+                { NULL_STR,                          CAN_DATA_UNSIGNED, 0,         0 },
+
+            }
+        },
+        {
+            /* Callbacks always null for scheduling calculations */
+            NULL,
+            NULL
+        },
+        CAN_NONE  /* txChan */,
+        CAN_NONE  /* rxChan */
     },
     {
         /* .canMsgInfo */
@@ -85,7 +181,7 @@ static constexpr CANElement_T can_spec_can_element_sched_list[CAN_ELEM_LAST_MSG]
         /* .canMsgInfo */
         {
             0x470                                    /* id        */,
-            "SCM_Motor1Contro2"                      /* name      */,
+            "SCM_Motor2Control"                      /* name      */,
             100                                      /* period_ms */,
             1                                        /* numBytes  */,
             {   /* data_info */

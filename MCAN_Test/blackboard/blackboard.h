@@ -37,9 +37,6 @@ BlackboardElement_T * bb_get_element(const CANElementIndex_T idx);
 
 /// @brief Auto-generated Blackboard C declaration for the SCM (type = BB_C_DECL) subsystem.
 
-int32_t bb_get_SCM_TestFloofy(void);
-void bb_set_SCM_TestFloofy(const int32_t value);
-
 float32_T bb_get_SCM_motor1Acceleration(void);
 void bb_set_SCM_motor1Acceleration(const float32_T value);
 

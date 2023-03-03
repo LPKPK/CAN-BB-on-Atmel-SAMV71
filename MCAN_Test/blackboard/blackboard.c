@@ -52,33 +52,6 @@ BlackboardElement_T * bb_get_element(const CANElementIndex_T idx)
 
 
 /**
- * @brief Gets the SCM_TestFloofy value from the blackboard.
- * Test
- * @return int32_t value of SCM_TestFloofy in Test
- */
-int32_t bb_get_SCM_TestFloofy(void)
-{
-    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_SystemBarfy);
-    const BlackboardElement_T * const bbElem = bb_get_element(CAN_ELEM_SCM_SystemBarfy);
-    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
-    const int32_t value = bb_elem_get_int32_data(bbElem, dataInfo->start_byte);
-    return value;
-}
-
-/**
- * @brief Sets the SCM_TestFloofy value within the blackboard.
- * @see bb_get_SCM_TestFloofy for a description of this property.
- * @param value int32_t in Test
- */
-void bb_set_SCM_TestFloofy(const int32_t value)
-{
-    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_SystemBarfy);
-    BlackboardElement_T * bbElem = bb_get_element(CAN_ELEM_SCM_SystemBarfy);
-    const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
-    bb_elem_set_int32_data(bbElem, value, dataInfo->start_byte);
-}
-
-/**
  * @brief Gets the SCM_motor1Acceleration value from the blackboard.
  * Motor 1 Acceleration
  * @return int16_t value of SCM_motor1Acceleration in step/s^2
@@ -220,8 +193,8 @@ void bb_set_SCM_Motor1Control(const int8_t value)
  */
 int8_t bb_get_SCM_Motor2Control(void)
 {
-    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor1Contro2);
-    const BlackboardElement_T * const bbElem = bb_get_element(CAN_ELEM_SCM_Motor1Contro2);
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor2Control);
+    const BlackboardElement_T * const bbElem = bb_get_element(CAN_ELEM_SCM_Motor2Control);
     const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
     const int8_t value = bb_elem_get_int8_data(bbElem, dataInfo->start_byte);
     return value;
@@ -234,8 +207,8 @@ int8_t bb_get_SCM_Motor2Control(void)
  */
 void bb_set_SCM_Motor2Control(const int8_t value)
 {
-    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor1Contro2);
-    BlackboardElement_T * bbElem = bb_get_element(CAN_ELEM_SCM_Motor1Contro2);
+    const CANMsgInfo_T * canMsgInfo = can_elem_get_can_msg_info_idx(CAN_ELEM_SCM_Motor2Control);
+    BlackboardElement_T * bbElem = bb_get_element(CAN_ELEM_SCM_Motor2Control);
     const CANDataInfo_T * dataInfo = &canMsgInfo->data_info[0];
     bb_elem_set_int8_data(bbElem, value, dataInfo->start_byte);
 }

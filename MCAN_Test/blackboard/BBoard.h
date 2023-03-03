@@ -29,9 +29,6 @@ public:
 
 /// @brief Auto-generated Blackboard CPP declaration for the SCM (type = BB_CPP_DECL) subsystem.
 
-   static int32_t get_SCM_TestFloofy();
-   static void set_SCM_TestFloofy(const int32_t value);
-
    static float32_T get_SCM_motor1Acceleration();
    static void set_SCM_motor1Acceleration(const float32_T value);
 
